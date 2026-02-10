@@ -2,54 +2,59 @@
   box-sizing: border-box;
 }
 
+:root{
+  --card-max: 520px;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(135deg, #1f2d1f, #3b5c3b);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  padding: 24px 16px; /* garante respiro em telas pequenas */
 }
 
-/* CONTAINER */
+/* CARD */
 .login-container {
   background: #ffffff;
-  padding: 40px;
-  width: 380px;
-  max-width: 92vw;
+  width: min(var(--card-max), 96vw); /* ocupa quase a largura toda no mobile */
+  padding: 44px 34px;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 0 24px rgba(0,0,0,0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 26px rgba(0,0,0,0.35);
 }
 
 /* LOGO */
 .logo {
-  width: 240px;
-  max-width: 100%;
-  margin-bottom: 24px;
+  width: min(300px, 70vw);
+  height: auto;
+  margin-bottom: 26px;
 }
 
 /* TEXTOS */
 h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin: 0 0 12px 0;
 }
 
 p {
   font-size: 14px;
+  line-height: 1.35;
   color: #555;
-  margin-bottom: 26px;
+  margin: 0 0 26px 0;
 }
 
-/* INPUTS E BOTÃO */
+/* INPUTS + BOTÃO */
 input,
 button {
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   margin-bottom: 14px;
-  border-radius: 6px;
-  font-size: 16px; /* melhor para mobile */
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 input {
@@ -75,33 +80,36 @@ button:hover {
   font-size: 14px;
 }
 
-/* ===== AJUSTES MOBILE ===== */
+/* MOBILE: deixa ainda maior e mais “cheio” */
 @media (max-width: 600px) {
-
   body {
-    padding: 20px;
+    padding: 18px 12px;
+    align-items: center;
   }
 
   .login-container {
-    width: 100%;
-    padding: 32px 24px;
+    width: 96vw;
+    padding: 40px 22px;
   }
 
   .logo {
-    width: 260px; /* LOGO MAIOR NO CELULAR */
+    width: 78vw;        /* logo bem maior no mobile */
+    max-width: 340px;
+    margin-bottom: 22px;
   }
 
-  h1 {
-    font-size: 22px;
-  }
+  h1 { font-size: 24px; }
+  p  { font-size: 15px; }
 
-  p {
-    font-size: 15px;
-  }
-
-  input,
-  button {
+  input, button {
     font-size: 17px;
-    padding: 16px;
+    padding: 18px;
   }
+}
+
+/* TELAS MUITO PEQUENAS */
+@media (max-width: 380px) {
+  .login-container { padding: 34px 18px; }
+  .logo { width: 82vw; }
+  h1 { font-size: 22px; }
 }
