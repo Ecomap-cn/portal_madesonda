@@ -117,115 +117,90 @@ body {
   border-radius: 2px;
 }
 
-.btn-logout {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  padding: 6px 14px;
-  font-size: 0.85rem;
-  background-color: #c0392b;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-logout:hover {
-  background-color: #a93226;
-}
-
-
 /* ================================
-   MOBILE (até 768px)
+   RESPONSIVO (MOBILE)
 ================================ */
 @media (max-width: 768px) {
+  /* cria espaço para o botão "Sair" fixo no topo */
   .topbar {
-    padding: 16px 14px;
+    padding: 64px 16px 18px 16px;
   }
 
   .brand {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 14px;
   }
 
   .brand-logo-wrap {
+    width: 100%;
+    max-width: 520px;
     padding: 12px 14px;
-    border-radius: 10px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
   }
 
   .brand-logo {
-    height: 80px;
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
   }
 
   .brand-text h1 {
-    font-size: 20px;
-    line-height: 1.1;
+    font-size: 22px;
+    line-height: 1.15;
   }
 
   .brand-text span {
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 6px;
   }
 
+  /* cards/botões em 1 coluna */
   .content {
     padding: 16px 12px 28px 12px;
   }
 
-  .section-header {
-    gap: 12px;
-    margin: 2px 0 14px 0;
-  }
-
-  .section-header h2 {
-    font-size: 16px;
-  }
-
   .grid {
-    grid-template-columns: 1fr; /* 1 coluna no celular */
+    grid-template-columns: 1fr;
     gap: 14px;
   }
 
   .card {
     padding: 16px;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
-  .card h3 {
-    font-size: 17px;
-    margin-bottom: 6px;
-  }
-
-  .card p {
-    margin: 0;
-    font-size: 13px;
-    color: #333;
-  }
-
-  /* Botão sair: fixa no topo e não “some” */
+  /* botão sair: fixo e sem sobrepor o título (por causa do padding-top acima) */
   .btn-logout {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     padding: 8px 12px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     z-index: 9999;
   }
 }
 
-/* ================================
-   MOBILE PEQUENO (até 420px)
-================================ */
 @media (max-width: 420px) {
+  .topbar {
+    padding: 62px 14px 16px 14px;
+  }
+
   .brand-logo {
-    height: 68px;
+    max-height: 100px;
   }
 
   .brand-text h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .btn-logout {
     padding: 7px 10px;
+    font-size: 0.85rem;
   }
 }
+
