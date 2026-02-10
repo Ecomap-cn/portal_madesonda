@@ -113,3 +113,11 @@ button:hover {
   .logo { width: 82vw; }
   h1 { font-size: 22px; }
 }
+
+.aviso-sessao {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  opacity: 0.85;
+}
