@@ -133,3 +133,99 @@ body {
 .btn-logout:hover {
   background-color: #a93226;
 }
+
+
+/* ================================
+   MOBILE (até 768px)
+================================ */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 16px 14px;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .brand-logo-wrap {
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .brand-logo {
+    height: 80px;
+  }
+
+  .brand-text h1 {
+    font-size: 20px;
+    line-height: 1.1;
+  }
+
+  .brand-text span {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .content {
+    padding: 16px 12px 28px 12px;
+  }
+
+  .section-header {
+    gap: 12px;
+    margin: 2px 0 14px 0;
+  }
+
+  .section-header h2 {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+    gap: 14px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .card p {
+    margin: 0;
+    font-size: 13px;
+    color: #333;
+  }
+
+  /* Botão sair: fixa no topo e não “some” */
+  .btn-logout {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    z-index: 9999;
+  }
+}
+
+/* ================================
+   MOBILE PEQUENO (até 420px)
+================================ */
+@media (max-width: 420px) {
+  .brand-logo {
+    height: 68px;
+  }
+
+  .brand-text h1 {
+    font-size: 18px;
+  }
+
+  .btn-logout {
+    padding: 7px 10px;
+  }
+}
