@@ -1,0 +1,118 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.topbar {
+  background: #1f2d1f;
+  color: #fff;
+  padding: 22px 32px;   /* mais altura no header */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand-logo-wrap {
+  background: #ffffff;
+  padding: 18px 22px;   /* mais respiro pro logo */
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(0,0,0,0.30);
+}
+
+.brand-logo {
+  height: 120px;       /* LOGO GRANDE, SEM MEDO */
+  width: auto;
+  display: block;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.brand-text span {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  color: #d7d7d7;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  text-decoration: none;
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.18);
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: scale(1.03); }
+
+.card h3 {
+  margin-top: 0;
+  color: #2f6b2f;
+  font-size: 18px;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 16px 10px;
+  font-size: 12px;
+  color: #666;
+  background: #f2f2f2;
+}
+
+/* SEÇÕES (Próprias / Arrendadas) */
+.section-block {
+  margin-bottom: 34px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 4px 0 18px 0;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2d1f;
+}
+
+.section-divider {
+  height: 2px;
+  background: rgba(31, 45, 31, 0.18);
+  flex: 1;
+  border-radius: 2px;
+}
