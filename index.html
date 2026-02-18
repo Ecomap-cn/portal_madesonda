@@ -3,19 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
+
   <meta name="description" content="Portal MADESONDA - Gestão Territorial • Acesso seguro • Atualizado diariamente">
 
-  
-  
-  
-  
-  
-  
-<title>Portal MADESONDA</title>
+  <title>Portal MADESONDA</title>
   <link rel="stylesheet" href="css/style-login.css">
-    <style>
-/* ===== Campo senha com ícone (acabamento premium) ===== */
+
+  <style>
+    /* ===== Campo senha com ícone (acabamento premium) ===== */
     .pwd-wrap{
       position: relative;
       width: 100%;
@@ -25,7 +20,7 @@
       padding-right: 56px !important;
       box-sizing: border-box;
     }
-        .pwd-toggle{
+    .pwd-toggle{
       position: absolute;
       right: 12px;
       top: 50%;
@@ -61,7 +56,8 @@
     .pwd-toggle .icon-eyeoff{ display:none; }
     .pwd-toggle.is-visible .icon-eye{ display:none; }
     .pwd-toggle.is-visible .icon-eyeoff{ display:block; }
-/* ===== Lembrar senha (alinhado e limpo) ===== */
+
+    /* ===== Lembrar senha (alinhado e limpo) ===== */
     .remember-row{
       display: flex;
       align-items: center;
@@ -82,28 +78,82 @@
       cursor: pointer;
       margin: 0;
     }
-</style>
 
-    <!-- Open Graph / WhatsApp Preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Portal MADESONDA">
-    <meta property="og:description" content="Portal de Gestão Territorial • MADESONDA IND. COM. DE MADEIRAS LTDA">
-    <meta property="og:image" content="https://ecomap-cn.github.io/portal_madesonda/images/madesondaorig.png">
-    
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
-<!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portal MADESONDA">
-    <meta name="twitter:description" content="Portal de Gestão Territorial • MADESONDA IND. COM. DE MADEIRAS LTDA">
-    <meta name="twitter:image" content="https://ecomap-cn.github.io/portal_madesonda/images/madesondaorig.png">
+    /* ===== Ajuste mobile: login sem rolagem desnecessária ===== */
+    @media (max-width: 480px), (max-height: 740px){
+      body{
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      .login-container{
+        width: 100%;
+        max-width: 420px;
+        margin: 0;
+        padding: 18px 16px;
+      }
+      .login-container .logo{
+        display: block;
+        width: 70%;
+        max-width: 240px;
+        height: auto;
+        margin: 0 auto 10px auto;
+      }
+      .login-container h1{
+        font-size: 18px;
+        margin: 6px 0 6px;
+      }
+      .login-container p{
+        font-size: 13px;
+        line-height: 1.25;
+        margin: 0 0 12px;
+      }
+      #loginForm input{
+        font-size: 15px;
+        padding: 10px 12px;
+      }
+      #loginForm button[type="submit"]{
+        font-size: 15px;
+        padding: 10px 12px;
+        margin-top: 6px;
+      }
+      .remember-row{
+        margin: 8px 0 12px;
+        font-size: 13px;
+      }
+      .aviso-sessao{
+        margin-top: 10px;
+        font-size: 12px;
+      }
+      #erro{
+        margin-top: 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
 
+  <!-- Open Graph / WhatsApp Preview (mantém a imagem que funcionou no WhatsApp) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portal MADESONDA">
+  <meta property="og:description" content="Portal de Gestão Territorial • MADESONDA IND. COM. DE MADEIRAS LTDA">
+  <meta property="og:image" content="https://ecomap-cn.github.io/portal_madesonda/images/madesondaorig.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portal MADESONDA">
+  <meta name="twitter:description" content="Portal de Gestão Territorial • MADESONDA IND. COM. DE MADEIRAS LTDA">
+  <meta name="twitter:image" content="https://ecomap-cn.github.io/portal_madesonda/images/madesondaorig.png">
 </head>
 <body>
 
   <div class="login-container">
-    <img src="images/madesondaorig.png" class="logo" alt="Madesonda">
+    <!-- Logo da TELA (menor/mais leve): usa madesonda1.png conforme solicitado -->
+    <img src="images/madesonda1.png" class="logo" alt="Madesonda">
 
     <h1>Portal de Gestão Territorial</h1>
     <p>
@@ -113,21 +163,38 @@
 
     <form id="loginForm">
       <input type="text" id="login" placeholder="Login" autocomplete="username">
-      <div class="pwd-wrap"><input type="password" id="senha" placeholder="Senha" autocomplete="current-password"><button type="button" class="pwd-toggle" id="toggleSenha" aria-label="Mostrar senha" title="Mostrar/ocultar senha"><svg class="icon-eye" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg><svg class="icon-eyeoff" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-6.5 0-11-7-11-7a21.77 21.77 0 0 1 5.06-5.94"></path><path d="M9.9 4.24A10.94 10.94 0 0 1 12 4c6.5 0 11 7 11 7a21.77 21.77 0 0 1-3.17 4.33"></path><path d="M14.12 14.12a3 3 0 0 1-4.24-4.24"></path><path d="M1 1l22 22"></path></svg></button></div>
+
+      <div class="pwd-wrap">
+        <input type="password" id="senha" placeholder="Senha" autocomplete="current-password">
+        <button type="button" class="pwd-toggle" id="toggleSenha" aria-label="Mostrar senha" title="Mostrar/ocultar senha">
+          <svg class="icon-eye" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <svg class="icon-eyeoff" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-6.5 0-11-7-11-7a21.77 21.77 0 0 1 5.06-5.94"></path>
+            <path d="M9.9 4.24A10.94 10.94 0 0 1 12 4c6.5 0 11 7 11 7a21.77 21.77 0 0 1-3.17 4.33"></path>
+            <path d="M14.12 14.12a3 3 0 0 1-4.24-4.24"></path>
+            <path d="M1 1l22 22"></path>
+          </svg>
+        </button>
+      </div>
+
       <div class="remember-row">
         <input type="checkbox" id="lembrar">
         <label for="lembrar">Lembrar senha</label>
       </div>
+
       <button type="submit">Entrar</button>
     </form>
 
-<p class="aviso-sessao">
-  🔒 Por segurança, o acesso é encerrado automaticamente todos os dias às <strong>23:59</strong>.
-</p>
-
+    <p class="aviso-sessao">
+      🔒 Por segurança, o acesso é encerrado automaticamente todos os dias às <strong>23:59</strong>.
+    </p>
 
     <div id="erro">Login ou senha inválidos</div>
   </div>
+
   <script>
     (function(){
       var KEY_ON = "MADESONDA_REMEMBER_ON";
@@ -195,7 +262,6 @@
       else bind();
     })();
   </script>
-
 
   <script src="js/auth.js"></script>
 </body>
