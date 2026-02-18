@@ -3,8 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Portal MADESONDA</title>
+  
+  <meta name="description" content="Portal MADESONDA - Gestão Territorial • Acesso seguro • Atualizado diariamente">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portal MADESONDA">
+  <meta property="og:description" content="Portal de Gestão Territorial • MADESONDA IND. COM. DE MADEIRAS LTDA">
+  <meta property="og:image" content="images/madesonda1.png">
+  <meta property="og:url" content="https://SEU-DOMINIO-AQUI/">
+  <meta name="twitter:card" content="summary_large_image">
+<title>Portal MADESONDA</title>
   <link rel="stylesheet" href="css/style-login.css">
+    <style>
+/* ===== Campo senha com ícone (acabamento premium) ===== */
+    .pwd-wrap{
+      position: relative;
+      width: 100%;
+    }
+    .pwd-wrap input{
+      width: 100%;
+      padding-right: 56px !important;
+      box-sizing: border-box;
+    }
+        .pwd-toggle{
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      outline: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #2a2a2a;
+      line-height: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease;
+    }
+    .pwd-toggle:hover{
+      background: rgba(47,111,55,0.10);
+      color: #2f6f37;
+      transform: translateY(-50%) scale(1.03);
+    }
+    .pwd-toggle:focus-visible{
+      box-shadow: 0 0 0 3px rgba(47,111,55,0.22) !important;
+    }
+    /* alterna ícones */
+    .pwd-toggle .icon-eyeoff{ display:none; }
+    .pwd-toggle.is-visible .icon-eye{ display:none; }
+    .pwd-toggle.is-visible .icon-eyeoff{ display:block; }
+/* ===== Lembrar senha (alinhado e limpo) ===== */
+    .remember-row{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      margin: 12px 0 18px 0;
+      font-size: 14px;
+      color: #444;
+      user-select: none;
+    }
+    .remember-row input[type="checkbox"]{
+      width: 16px;
+      height: 16px;
+      accent-color: #2f6f37;
+      cursor: pointer;
+    }
+    .remember-row label{
+      cursor: pointer;
+      margin: 0;
+    }
+</style>
 </head>
 <body>
 
@@ -19,7 +97,11 @@
 
     <form id="loginForm">
       <input type="text" id="login" placeholder="Login" autocomplete="username">
-      <input type="password" id="senha" placeholder="Senha" autocomplete="current-password">
+      <div class="pwd-wrap"><input type="password" id="senha" placeholder="Senha" autocomplete="current-password"><button type="button" class="pwd-toggle" id="toggleSenha" aria-label="Mostrar senha" title="Mostrar/ocultar senha"><svg class="icon-eye" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg><svg class="icon-eyeoff" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-6.5 0-11-7-11-7a21.77 21.77 0 0 1 5.06-5.94"></path><path d="M9.9 4.24A10.94 10.94 0 0 1 12 4c6.5 0 11 7 11 7a21.77 21.77 0 0 1-3.17 4.33"></path><path d="M14.12 14.12a3 3 0 0 1-4.24-4.24"></path><path d="M1 1l22 22"></path></svg></button></div>
+      <div class="remember-row">
+        <input type="checkbox" id="lembrar">
+        <label for="lembrar">Lembrar senha</label>
+      </div>
       <button type="submit">Entrar</button>
     </form>
 
@@ -30,6 +112,74 @@
 
     <div id="erro">Login ou senha inválidos</div>
   </div>
+  <script>
+    (function(){
+      var KEY_ON = "MADESONDA_REMEMBER_ON";
+      var KEY_LOGIN = "MADESONDA_LOGIN";
+      var KEY_SENHA = "MADESONDA_SENHA";
+
+      function qs(id){ return document.getElementById(id); }
+
+      function applyRemember(){
+        try{
+          var on = localStorage.getItem(KEY_ON) === "1";
+          var cb = qs("lembrar");
+          var login = qs("login");
+          var senha = qs("senha");
+          if(cb) cb.checked = on;
+          if(on){
+            if(login) login.value = localStorage.getItem(KEY_LOGIN) || "";
+            if(senha) senha.value = localStorage.getItem(KEY_SENHA) || "";
+          }
+        }catch(e){}
+      }
+
+      function storeRemember(){
+        try{
+          var cb = qs("lembrar");
+          var login = qs("login");
+          var senha = qs("senha");
+          if(!cb) return;
+          if(cb.checked){
+            localStorage.setItem(KEY_ON, "1");
+            localStorage.setItem(KEY_LOGIN, (login && login.value) ? login.value : "");
+            localStorage.setItem(KEY_SENHA, (senha && senha.value) ? senha.value : "");
+          }else{
+            localStorage.setItem(KEY_ON, "0");
+            localStorage.removeItem(KEY_LOGIN);
+            localStorage.removeItem(KEY_SENHA);
+          }
+        }catch(e){}
+      }
+
+      function bind(){
+        var btn = qs("toggleSenha");
+        var ip = qs("senha");
+        if(btn && ip){
+          btn.addEventListener("click", function(){
+            ip.type = (ip.type === "password") ? "text" : "password";
+            btn.classList.toggle("is-visible", ip.type === "text");
+            btn.setAttribute("aria-label", ip.type === "text" ? "Ocultar senha" : "Mostrar senha");
+            btn.setAttribute("title", ip.type === "text" ? "Ocultar senha" : "Mostrar senha");
+          });
+        }
+
+        var form = qs("loginForm");
+        if(form){
+          // Não bloqueia o auth.js: só salva antes de ele processar
+          form.addEventListener("submit", function(){
+            storeRemember();
+          }, true);
+        }
+
+        applyRemember();
+      }
+
+      if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
+      else bind();
+    })();
+  </script>
+
 
   <script src="js/auth.js"></script>
 </body>
